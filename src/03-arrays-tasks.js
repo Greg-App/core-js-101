@@ -304,8 +304,8 @@ function get3TopItems(/* arr */) {
  *   [ null, 1, 'elephant' ] => 1
  *   [ 1, '2' ] => 1
  */
-function getPositivesCount(/* arr */) {
-  throw new Error('Not implemented');
+function getPositivesCount(arr) {
+  return arr.filter((el) => typeof el === 'number' && (el > 0)).length;
 }
 
 /**
@@ -321,8 +321,12 @@ function getPositivesCount(/* arr */) {
  *   [ 'nine','eight','nine','eight'] => [ 'eight','eight','nine','nine']
  *   [ 'one','one','one','zero' ]     => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
+function sortDigitNamesByNumericOrder(arr) {
+  const alph = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+  return arr
+    .map((el) => alph.indexOf(el))
+    .sort((a, b) => a - b)
+    .map((el) => alph[el]);
 }
 
 /**
@@ -337,8 +341,8 @@ function sortDigitNamesByNumericOrder(/* arr */) {
  *   [ -1, 1, -1, 1 ]      => 0
  *   [ 1, 10, 100, 1000 ]  => 1111
  */
-function getItemsSum(/* arr */) {
-  throw new Error('Not implemented');
+function getItemsSum(arr) {
+  return arr.reduce((acc, el) => acc + el, 0);
 }
 
 /**
@@ -355,6 +359,10 @@ function getItemsSum(/* arr */) {
  */
 function getFalsyValuesCount(/* arr */) {
   throw new Error('Not implemented');
+  /* return arr.reduce((acc,el) => {
+    if(!el || el === 0) {
+      return acc + 1;
+    }}); */
 }
 
 /**
